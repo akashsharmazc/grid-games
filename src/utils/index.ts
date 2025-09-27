@@ -6,7 +6,7 @@ export const idx = (row: number, col: number, n: number) => row * n + col;
 export const rc = (i: number, n: number) => ({ r: Math.floor(i / n), c: i % n });
 
 // Encoding utilities
-export function base64Encode(obj: any): string {
+export function base64Encode(obj: unknown): string {
   const s = JSON.stringify(obj);
   if (typeof window === "undefined") return s;
   return btoa(unescape(encodeURIComponent(s)));
@@ -72,18 +72,18 @@ export function calculateWinLine(line: number[] | null, n: number) {
 }
 
 // Performance utilities
-export function debounce<T extends (...args: any[]) => void>(
+export function debounce<T extends (...args: unknown[]) => void>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout;
+  let timeout: number;
   return (...args: Parameters<T>) => {
     clearTimeout(timeout);
     timeout = setTimeout(() => func(...args), wait);
   };
 }
 
-export function throttle<T extends (...args: any[]) => void>(
+export function throttle<T extends (...args: unknown[]) => void>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {

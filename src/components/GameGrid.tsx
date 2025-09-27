@@ -1,7 +1,6 @@
 import React, { memo, useMemo } from 'react';
 import { GridCell } from './GridCell';
 import type { Mode, TTTCell, MemoryState } from '../types';
-import { calculateWinLine } from '../utils';
 
 interface GameGridProps {
   n: number;

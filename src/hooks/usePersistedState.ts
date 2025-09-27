@@ -16,7 +16,7 @@ export function usePersistedState<T>(
   // Debounced storage update to prevent excessive writes
   const debouncedUpdate = useCallback(
     (() => {
-      let timeout: NodeJS.Timeout;
+      let timeout: number;
       return (value: T) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
