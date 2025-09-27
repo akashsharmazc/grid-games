@@ -28,7 +28,7 @@ A lightweight React 18 app with grid-based games, smooth animations, and multipl
 ## Setup
 
 ```bash
-git clone https://github.com/yourusername/grid-games.git
+git clone https://github.com/akashsharmazc/grid-games.git
 cd grid-games
 npm install
 npm run dev
