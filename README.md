@@ -2,7 +2,8 @@
 
 A lightweight React 18 app with grid-based games, smooth animations, and multiple themes.
 
-![Grid Games Preview](https://via.placeholder.com/800x400/2563eb/ffffff?text=Grid+Games+Preview)
+![Grid Games Preview](<img width="721" height="632" alt="image" src="https://github.com/user-attachments/assets/d14152e3-9254-443f-beb5-635dd348e582" />
+)
 
 ## Features
 
