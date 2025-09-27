@@ -112,29 +112,28 @@ export default function App() {
       pushUndo();
       const nextPlayer = gameState.currentPlayer === "X" ? "O" : "X";
       
-      gameState.updateGrid(g => {
-        const newGrid = [...g];
-        newGrid[index] = gameState.currentPlayer;
-        return newGrid;
-      });
+      // Create new grid with the move
+      const newGrid = [...grid];
+      newGrid[index] = gameState.currentPlayer;
       
-      gameState.setCurrentPlayer(nextPlayer);
+      gameState.updateGrid(() => newGrid);
       gameState.setFocusIndex(index);
       
-      // Check for game end (will be computed in next render)
-      setTimeout(() => {
-        const result = computeTTTWinner(gameState.grid as TTTCell[], gameState.n);
-        if (result.winner) {
-          const winner = result.winner as keyof TTTScore;
-          setTTTScore(s => ({ ...s, [winner]: s[winner] + 1 }));
-          announce(`${result.winner} wins!`);
-        } else if (gameState.grid.every(c => c !== "")) {
-          setTTTScore(s => ({ ...s, Draws: s.Draws + 1 }));
-          announce("Draw.");
-        } else {
-          announce(`${nextPlayer}'s turn`);
-        }
-      }, 0);
+      // Check for game end with the new grid immediately
+      const result = computeTTTWinner(newGrid, gameState.n);
+      if (result.winner) {
+        const winner = result.winner as keyof TTTScore;
+        setTTTScore(s => ({ ...s, [winner]: s[winner] + 1 }));
+        gameState.setCurrentPlayer("" as TTTCell); // Clear current player to show "Game Over"
+        announce(`${result.winner} wins!`);
+      } else if (newGrid.every(c => c !== "")) {
+        setTTTScore(s => ({ ...s, Draws: s.Draws + 1 }));
+        gameState.setCurrentPlayer("" as TTTCell); // Clear current player for draw
+        announce("Draw.");
+      } else {
+        gameState.setCurrentPlayer(nextPlayer);
+        announce(`${nextPlayer}'s turn`);
+      }
       return;
     }
 

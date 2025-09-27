@@ -22,7 +22,7 @@ export const GameStatus = memo<GameStatusProps>(({
         <div className="rounded-2xl p-3" style={{ background: "var(--panel)" }}>
           <p className="text-xs text-[color:var(--muted)]">Turn</p>
           <p className="text-sm font-semibold">
-            {currentPlayer ? `${currentPlayer}'s turn` : "Game Over"}
+{currentPlayer ? `${currentPlayer}'s turn` : "Game Over"}
           </p>
           <div className="mt-2 flex gap-3 text-xs">
             <span>X: <b>{tttScore.X}</b></span>
