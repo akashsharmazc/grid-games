@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import type { GameStatusProps } from '../types';
 
 export const GameStatus = memo<GameStatusProps>(({

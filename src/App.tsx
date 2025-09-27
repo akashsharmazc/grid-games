@@ -344,7 +344,7 @@ export default function App() {
             mode={gameState.mode}
             memoryState={gameState.mem}
             winLine={winLine}
-            onCellClick={handleCellClick}
+            onCellClick={(index) => handleCellClick(index)}
             onCellFocus={gameState.setFocusIndex}
           />
 

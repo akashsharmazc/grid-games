@@ -1,5 +1,5 @@
 import { useState, useCallback, useTransition, useDeferredValue } from 'react';
-import type { Mode, TTTCell, MemoryState, TTTScore, PersistedSnapshot } from '../types';
+import type { Mode, TTTCell, MemoryState, PersistedSnapshot } from '../types';
 import { MIN_N, MAX_N } from '../constants';
 import { clamp } from '../utils';
 

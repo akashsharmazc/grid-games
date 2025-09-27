@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 // Memoized style component to prevent re-creation of CSS on every render
 export const StyleTag = memo(() => (

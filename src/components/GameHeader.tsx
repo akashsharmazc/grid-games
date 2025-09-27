@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import type { GameHeaderProps } from '../types';
 import { THEMES, MIN_N, MAX_N } from '../constants';
 import { ShareButton } from './ShareButton';
